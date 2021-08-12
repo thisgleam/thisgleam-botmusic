@@ -1,0 +1,6 @@
+{
+  "name": "thisgleam-botmusic",
+  "description": "🤖 Discord Music Bot built with discord.js",
+  "repository": "https://github.com/thisgleam/thisgleam-botmusic",
+  "keywords": ["discord", "discordjs", "music", "bot"]
+}

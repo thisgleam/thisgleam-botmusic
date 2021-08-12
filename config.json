@@ -1,0 +1,15 @@
+{
+  "TOKEN": "",
+  "YOUTUBE_API_KEY": "",
+  "MONGODB_URI": "",
+  "SOUNDCLOUD_CLIENT_ID": "",
+  "SPOTIFY_CLIENT_ID": "",
+  "SPOTIFY_SECRET_ID": "",
+  "GENIUS_TOKEN": "",
+  "MAX_PLAYLIST_SIZE": 500,
+  "PREFIX": "tg!",
+  "PRUNING": true,
+  "LOCALE": "en",
+  "STAY_TIME": 90,
+  "DEFAULT_VOLUME": 100
+}
