@@ -12,6 +12,7 @@ module.exports={
     let pingEmbed = new MessageEmbed()
       .setTitle(`${message.author.tag} Ping`)
       .setDescription(`🏓Ping: ${Date.now() - message.createdTimestamp}ms`)
+      .setTimestamp()
       .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
       .setColor("#00BCFF");
 
