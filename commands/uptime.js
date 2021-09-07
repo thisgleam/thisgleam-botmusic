@@ -16,7 +16,7 @@ module.exports = {
 
     let uptimeEmbed = new MessageEmbed()
     .setTitle(`${message.author.tag} Uptime`)
-    .setURL(`https://stats.uptimerobot.com/jLMx4UjqKN`)
+    .setURL(`https://stats.uptimerobot.com/rqOqLir0G4`)
     // .setDescription(`**Uptime**: ${days} day(s), ${hours} hours, ${minutes} minutes, ${seconds} seconds`)
     .setDescription(`**Uptime**: ${days} days, ${hours} hours`)
     .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
