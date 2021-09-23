@@ -116,7 +116,7 @@ module.exports = {
       .setAuthor(`${song.title}`, 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048', `${song.url}`)
       //.setDescription(i18n.__mf("play.startedPlaying", { title: song.title, url: song.url }))
       .setImage(`https://i.ytimg.com/vi/${video_id}/hqdefault.jpg`)
-      .setFooter('Design : thisgleam')
+      .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
       .setColor("#00BCFF")
       .setTimestamp();
       var playingMessage = await queue.textChannel.send(
