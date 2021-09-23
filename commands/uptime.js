@@ -19,7 +19,8 @@ module.exports = {
     .setURL(`https://stats.uptimerobot.com/rqOqLir0G4`)
     // .setDescription(`**Uptime**: ${days} day(s), ${hours} hours, ${minutes} minutes, ${seconds} seconds`)
     // .setDescription(`**Uptime**: ${days} days, ${hours} hours`)
-    .setDescription('**Uptime**: `' + days + ' days, ' + hours  + ' hours`')
+    // .setDescription('**Uptime**: `' + days + ' days, ' + hours  + ' hours`')
+    .setDescription('**Uptime**: `' + days + ' days, ' + hours  + ' hours, ' + minutes + ' minutes`')
     .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
     .setTimestamp()
     .setColor("#00BCFF");
