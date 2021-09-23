@@ -10,7 +10,7 @@ module.exports = {
   execute(message) {
     const queue = message.client.queue.get(message.guild.id);
     let errorNotQueue = new MessageEmbed()
-      .setTitle(i18n.__mf("pause.embedTitle", { botname: message.author.tag }))
+      .setTitle(i18n.__mf("pause.embedtitle", { botname: message.author.tag }))
       .setDescription('Tidak ada musik')
       .setColor("#FF0000")
       .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
@@ -22,7 +22,7 @@ module.exports = {
       queue.playing = false;
       queue.connection.dispatcher.pause(true);
       let result = new MessageEmbed()
-      .setTitle(i18n.__mf("pause.embedTitle", { botname: message.author.tag }))
+      .setTitle(i18n.__mf("pause.embedtitle", { botname: message.author.tag }))
       .setDescription('⏸ Paused the music.')
       .setColor("#FF0000")
       .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
