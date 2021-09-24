@@ -16,7 +16,7 @@ module.exports = {
 
     let uptimeEmbed = new MessageEmbed()
     .setTitle(`${message.author.tag} Uptime`)
-    .setURL(`https://stats.uptimerobot.com/rqOqLir0G4`)
+    .setURL(`https://stats.uptimerobot.com/lkGkBT1oDg`)
     // .setDescription(`**Uptime**: ${days} day(s), ${hours} hours, ${minutes} minutes, ${seconds} seconds`)
     // .setDescription(`**Uptime**: ${days} days, ${hours} hours`)
     // .setDescription('**Uptime**: `' + days + ' days, ' + hours  + ' hours`')
