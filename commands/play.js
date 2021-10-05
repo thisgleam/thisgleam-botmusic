@@ -178,9 +178,13 @@ module.exports = {
     if (serverQueue) {
       serverQueue.songs.push(song);
       let queueAdded = new MessageEmbed()
-      .setTitle(`${message.author.tag} Play`)
+      .setTitle(`${song.title}`)
+	    .setURL(`${song.url}`)
+      // .setAuthor(`${song.title}`, message.client.user.displayAvatarURL(), `${song.url}`)
+      // .setTitle(`${message.author.tag} Play`)
       .setDescription(i18n.__mf("play.queueAdded", { title: song.title, author: message.author }))
-      .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
+      .setFooter(`Added by ${message.author.tag}`, message.author.displayAvatarURL())
+      // .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
       .setColor("#00BCFF")
       .setTimestamp();
       return serverQueue.textChannel
