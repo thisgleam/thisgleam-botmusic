@@ -37,9 +37,8 @@ module.exports = {
       setTimeout(function () {
         if (queue.connection.dispatcher && message.guild.me.voice.channel) return;
         queue.channel.leave();
-        queue.textChannel.send(leaveChannel);
+        queue.textChannel.send(leaveChannel).catch(console.error);
       }, STAY_TIME * 1000);
-      queue.textChannel.send(queueEnded).catch(console.error);
       return message.client.queue.delete(message.guild.id)
     }
 
