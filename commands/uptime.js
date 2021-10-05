@@ -13,6 +13,10 @@ module.exports = {
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
     let days = Math.floor(hours / 24);
+      
+    seconds %= 60;
+    minutes %= 60;
+    hours %= 24;
 
     let uptimeEmbed = new MessageEmbed()
     .setTitle(`${message.author.tag} Uptime`)
@@ -24,10 +28,6 @@ module.exports = {
     .setFooter('Design : thisgleam', 'https://cdn.discordapp.com/avatars/849261647859417118/bc4c4ddf312dd058c1d2e5bd826f69b4.png?size=2048')
     .setTimestamp()
     .setColor("#00BCFF");
-
-    seconds %= 60;
-    minutes %= 60;
-    hours %= 24;
 
     return message
       // .reply(i18n.__mf('uptime.result', {days: days, hours: hours, minutes: minutes, seconds: seconds}))
