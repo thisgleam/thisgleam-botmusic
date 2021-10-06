@@ -2,6 +2,7 @@
  * Module Imports
  */
 const { Client, Collection } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX, LOCALE, MONGODB_URI } = require("./util/Util");
@@ -14,6 +15,79 @@ const client = new Client({
   disableMentions: "everyone",
   restTimeOffset: 0
 });
+
+client.snipes = new Collection();
+
+// client.on("messageDelete", message => {
+//   client.snipes.set(message.channel.id, message);
+// });
+
+client.on("messageDelete", message => {
+  client.snipes.set(message.channel.id, {
+    content: message.content,
+    author: message.author,
+    image: message.attachments.first() ? message.attachments.first().proxyURL : null
+  });
+});
+
+const mainCategory = '859646264868995072';
+const mainChannel = '895166261485514763';
+const temporaryChannels = new Set();
+
+client.on('voiceStateUpdate', async (oldVoiceState, newVoiceState) => {
+    try {
+        const {channelID: oldChannelId, channel: oldChannel} = oldVoiceState;
+        const {channelID: newChannelId, guild, member} = newVoiceState;
+
+        // Create the temporary channel
+        if (newChannelId === mainChannel) {
+            // Create the temporary voice channel.
+            // Note that you can set the parent of the channel in the
+            // createChannel call, without having to set the parent in a
+            // separate request to Discord's API.
+            const channel = await guild.channels.create(
+                `💬 ${member.user.username}`,
+                {type: 'voice', parent: mainCategory}
+            );
+            // message.channel.send(VoiceEmbed).catch(console.error);
+            // Add the channel id to the array of temporary channel ids.
+            temporaryChannels.add(channel.id);
+            // Move the member to the new channel.
+            await newVoiceState.setChannel(channel);
+            const VoiceEmbed = new MessageEmbed()
+            .setColor('#00FF00')
+            .setDescription('✅ <@'+ member.user.id + '> has just created a new voice channel (`💬 '+ member.user.username +'`)')
+            .setAuthor(member.user.username, member.user.avatarURL())
+            .setTimestamp()
+            client.channels.cache.get('859646271571361802').send(VoiceEmbed);
+        }
+
+        // Remove empty temporary channels
+        if (
+            // Is the channel empty? (thanks to Rakshith B S for pointing this out)
+            !oldChannel.members.size &&
+            // Did the user come from a temporary channel?
+            temporaryChannels.has(oldChannelId) &&
+            // Did the user change channels or leave the temporary channel?
+            oldChannelId !== newChannelId
+        ) {
+            // Delete the channel
+            await oldChannel.delete();
+            // Remove the channel id from the temporary channels set
+            temporaryChannels.delete(oldChannelId);
+            const VoiceDelete = new MessageEmbed()
+            .setColor('#FF0000')
+            .setDescription('❌ Voice channel (`💬 '+ oldChannelId +'`) got deleted.')
+            .setAuthor(member.user.username, member.user.avatarURL())
+            .setTimestamp()
+            client.channels.cache.get('859646271571361802').send(VoiceDelete);
+        }
+    } catch (error) {
+        // Handle any errors
+        console.error(error);
+    }
+});
+
 
 
 client.login(TOKEN);
