@@ -21,7 +21,6 @@ const client = new Client({
 welcome(client);
 leave(client)
 
-
 client.snipes = new Collection();
 
 client.on("messageDelete", message => {
@@ -32,8 +31,8 @@ client.on("messageDelete", message => {
   });
 });
 
-const mainCategory = '859646264868995072';
-const mainChannel = '895166261485514763';
+const mainCategory = config.CATEGORYVOICE;
+const mainChannel = config.CHANNELVOICE;
 const temporaryChannels = new Set();
 
 client.on('voiceStateUpdate', async (oldVoiceState, newVoiceState) => {
