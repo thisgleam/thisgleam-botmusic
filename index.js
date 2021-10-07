@@ -6,21 +6,23 @@ const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX, LOCALE, MONGODB_URI } = require("./util/Util");
+const welcome = require("./commands/welcome");
+const leave = require("./commands/leave");
 const path = require("path");
 const i18n = require("i18n");
 const mongoDB = require('mongoose');
-const ms = require('ms');
+
 
 const client = new Client({
   disableMentions: "everyone",
   restTimeOffset: 0
 });
 
-client.snipes = new Collection();
+welcome(client);
+leave(client)
 
-// client.on("messageDelete", message => {
-//   client.snipes.set(message.channel.id, message);
-// });
+
+client.snipes = new Collection();
 
 client.on("messageDelete", message => {
   client.snipes.set(message.channel.id, {
@@ -128,10 +130,6 @@ i18n.configure({
 client.on("ready", () => {
   console.log(`${client.user.username} ready!`);
   //client.user.setActivity(`Sedang Maintenance`, { type: "PLAYING" });
-  //client.user.setActivity(`Sedang Maintenance | ${ms(client.uptime)} Uptime`, { type: "PLAYING" });
-//  setInterval(() => {
-//    client.user.setActivity(`Sedang Maintenance | ${ms(client.uptime)} Uptime`, { type: "PLAYING" });
-//}, 1000)
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
