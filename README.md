@@ -45,6 +45,8 @@ Copy atau Rename `config.json.example` menjadi `config.json` dan isi semua yang 
   "LOCALE": "en",
   "STAY_TIME": 90,
   "DEFAULT_VOLUME": 100,
+  "CATEGORYVOICE":  "",
+  "CHANNELVOICE":  "",
   "CHANNEL_WELCOME": "",
   "CHANNEL_LEAVE": "",
   "ROLES_WELCOME": ["",""]
