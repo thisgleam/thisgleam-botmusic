@@ -11,7 +11,7 @@ const leave = require("./commands/leave");
 const path = require("path");
 const i18n = require("i18n");
 const mongoDB = require('mongoose');
-
+const config = require("./config.json");
 
 const client = new Client({
   disableMentions: "everyone",
