@@ -44,7 +44,10 @@ Copy atau Rename `config.json.example` menjadi `config.json` dan isi semua yang 
   "PRUNING": true,
   "LOCALE": "en",
   "STAY_TIME": 90,
-  "DEFAULT_VOLUME": 100
+  "DEFAULT_VOLUME": 100,
+  "CHANNEL_WELCOME": "",
+  "CHANNEL_LEAVE": "",
+  "ROLES_WELCOME": ["",""]
 }
 ```
 
