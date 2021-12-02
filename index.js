@@ -138,7 +138,7 @@ client.on("error", console.error);
 */
 const status = [
    `${PREFIX}help and ${PREFIX}play`,
-   'Created By: thisgleam#1214',
+//    'Created By: thisgleam#1214',
  ];
  setInterval(() => {
    client.user.setActivity(status[Math.floor(Math.random() * status.length)], { type : 'WATCHING' });
