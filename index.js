@@ -141,7 +141,7 @@ const status = [
    'Created By: thisgleam#1214',
  ];
  setInterval(() => {
-   client.user.setActivity(status[Math.floor(Math.random() * status.length)], { type : 'PLAYING' });
+   client.user.setActivity(status[Math.floor(Math.random() * status.length)], { type : 'WATCHING' });
  }, 10000);
 
 /**
